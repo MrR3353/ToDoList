@@ -20,6 +20,7 @@ from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
 from rest_framework_swagger.views import get_swagger_view
+from django.views.generic import TemplateView
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -41,4 +42,5 @@ urlpatterns = [
          name='schema-swagger-ui'),
     path('admin/', admin.site.urls),
     path('api/', include('api.urls')),
+    path('', TemplateView.as_view(template_name='index.html')),
 ]
